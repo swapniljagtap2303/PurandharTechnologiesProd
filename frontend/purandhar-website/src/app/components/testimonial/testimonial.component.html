@@ -1,0 +1,17 @@
+<section class="testimonial-section">
+  <h2 class="title">What Our Clients Say</h2>
+  <p class="subtitle">Trusted by businesses who believe in our work</p>
+
+  <div class="testimonial-slider">
+    <div class="testimonial" *ngFor="let t of testimonials; let i = index" [class.active]="i === activeIndex">
+      <p class="quote">"{{ t.quote }}"</p>
+      <div class="client-info">
+        <img [src]="t.image" alt="Client photo" />
+        <div>
+          <h3>{{ t.name }}</h3>
+          <span>{{ t.position }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

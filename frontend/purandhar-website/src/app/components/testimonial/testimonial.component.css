@@ -1,0 +1,86 @@
+.testimonial-section {
+  text-align: center;
+  padding: 70px 10%;
+  background: linear-gradient(135deg, #fff9f9, #f0f7ff);
+  font-family: "Poppins", sans-serif;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 50px;
+}
+
+.testimonial-slider {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.testimonial {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.8s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  padding: 30px 25px;
+  box-shadow: 0 6px 20px rgba(255, 192, 203, 0.3);
+}
+
+.testimonial.active {
+  opacity: 1;
+  transform: translateX(0);
+  position: relative;
+}
+
+.quote {
+  font-size: 1.2rem;
+  color: #444;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  gap: 15px;
+}
+
+.client-info img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid #ffb6c1;
+  object-fit: cover;
+}
+
+.client-info h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #222;
+}
+
+.client-info span {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Animation smoothness */
+@media (max-width: 768px) {
+  .quote {
+    font-size: 1rem;
+  }
+}

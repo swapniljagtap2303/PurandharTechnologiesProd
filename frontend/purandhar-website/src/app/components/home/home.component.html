@@ -1,0 +1,16 @@
+<div class="hero">
+  <img src="assets/images/logo4.png" alt="Purandhar Technologies Logo" class="logo">
+  <h1>Welcome to Purandhar Technologies Pvt Ltd</h1>
+  <p>Your trusted IT solutions partner</p>
+  <button routerLink="/contact">Contact Us</button>
+</div>
+
+<div class="slider">
+  <div class="slides-wrapper" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+    <div class="slide" *ngFor="let slide of slides">
+      <h2>{{ slide.title }}</h2>
+      <p>{{ slide.description }}</p>
+    </div>
+  </div>
+
+</div>

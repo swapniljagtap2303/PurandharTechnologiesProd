@@ -1,0 +1,77 @@
+.newsletter-section {
+  background: linear-gradient(135deg, #fff8fb, #f0f8ff, #fffbe7);
+  text-align: center;
+  padding: 80px 20px;
+  border-radius: 30px;
+  margin: 40px auto;
+  max-width: 700px;
+  box-shadow: 0 6px 20px rgba(255, 182, 193, 0.3);
+  font-family: 'Poppins', sans-serif;
+}
+
+.newsletter-content h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.newsletter-content p {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+input[type='email'] {
+  padding: 12px 15px;
+  width: 300px;
+  border-radius: 25px;
+  border: 2px solid #ffc107;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+input[type='email']:focus {
+  border-color: #ff80ab;
+  box-shadow: 0 0 8px rgba(255, 105, 180, 0.3);
+}
+
+button {
+  background: linear-gradient(135deg, #ffb6c1, #ffd54f, #81d4fa);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 192, 203, 0.4);
+}
+
+.success-message {
+  color: #28a745;
+  font-weight: 600;
+  margin-top: 15px;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
