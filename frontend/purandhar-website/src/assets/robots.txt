@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://purandhar-technologies-spj.vercel.app/sitemap.xml
