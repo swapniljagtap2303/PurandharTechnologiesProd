@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "src": "/sitemap.xml",
+      "dest": "/assets/sitemap.xml"
+    },
+    {
+      "src": "/robots.txt",
+      "dest": "/assets/robots.txt"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
