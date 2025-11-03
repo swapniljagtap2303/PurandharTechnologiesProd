@@ -14,3 +14,272 @@
   </div>
 
 </div>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+
+<section class="about-container">
+  <div class="about-header">
+    <h1>About <span>Purandhar Technologies Pvt. Ltd.</span></h1>
+    <p>Empowering businesses through innovative technology solutions.</p>
+  </div>
+
+  <div class="about-content">
+    <div class="about-text">
+      <h2>Our Story</h2>
+      <p>
+        Founded in 2024, Purandhar Technologies Pvt. Ltd. is a fast-growing IT solutions
+        company based in India. We specialize in software development, web solutions,
+        and digital transformation services for startups and enterprises.
+      </p>
+
+      <h2>Our Mission</h2>
+      <p>
+        To deliver high-quality, cost-effective technology solutions that help businesses
+        grow and innovate in the digital era.
+      </p>
+
+      <h2>Our Vision</h2>
+      <p>
+        To be recognized globally as a trusted partner for end-to-end software development
+        and IT consulting.
+      </p>
+    </div>
+
+    <div class="about-image">
+      <img src="assets/images/receptioncounter.png" alt="Purandhar Technologies Team" />
+    </div>
+  </div>
+
+  <div class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="assets/images/team1.jpg" alt="Team Member" />
+        <h3>Swapnil Jagtap</h3>
+        <p>Founder & CEO</p>
+      </div>
+      <div class="team-card">
+        <img src="assets/images/team2.jpg" alt="Team Member" />
+        <h3>Ajit Rale</h3>
+        <h3>Goraksha Kaduskar</h3>
+        <p>Project Manager</p>
+      </div>
+      <div class="team-card">
+        <img src="assets/images/team3.jpg" alt="Team Member" />
+        <h3>Dnyaneshwar Rale</h3>
+        <p>Lead Developer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- --------------------------------------------------------------------------------------------------- -->
+
+<section class="services-section">
+  <h1 class="section-title">Our <span>Services</span></h1>
+  <p class="section-subtitle">
+    Delivering cutting-edge IT solutions to power your digital growth.
+  </p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="assets/images/image1.png" alt="Web Development" />
+      <h2>Web Development</h2>
+      <p>
+        Modern, responsive, and secure websites tailored to your business
+        needs — built using the latest technologies.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/image2.png" alt="App Development" />
+      <h2>App Development</h2>
+      <p>
+        Cross-platform mobile apps designed for seamless performance and
+        intuitive user experiences.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/image3.png" alt="Cloud Solutions" />
+      <h2>Cloud Solutions</h2>
+      <p>
+        Reliable, scalable, and secure cloud services to empower your
+        business operations.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/image4.png" alt="UI/UX Design" />
+      <h2>UI/UX Design</h2>
+      <p>
+        Creative, user-focused design services to enhance usability and
+        engagement across your digital platforms.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/image5.png" alt="IT Consulting" />
+      <h2>IT Consulting</h2>
+      <p>
+        Expert consulting to align your business goals with the right
+        technology strategy and execution plan.
+      </p>
+    </div>
+
+    <div class="service-card">
+      <img src="assets/images/image6.png" alt="Support & Maintenance" />
+      <h2>Support & Maintenance</h2>
+      <p>
+        Comprehensive post-deployment support and system maintenance to ensure
+        long-term stability.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------------------------------------------------------------------------------------------------------------------------- -->
+
+<section class="why-choose-us">
+  <h2 class="section-title">Why Choose Purandhar Technologies?</h2>
+  <p class="section-subtitle">
+    We deliver innovation, reliability, and excellence in every project we undertake.
+  </p>
+
+  <div class="reasons">
+    <div class="reason-card">
+      <img src="assets/icons/innovation.svg" alt="Innovation Icon">
+      <h3>Innovative Solutions</h3>
+      <p>We craft smart, future-ready digital products tailored to your business goals.</p>
+    </div>
+
+    <div class="reason-card">
+      <img src="assets/icons/expert-team.svg" alt="Expert Team Icon">
+      <h3>Expert Team</h3>
+      <p>Our team of skilled professionals ensures top-quality results with modern technologies.</p>
+    </div>
+
+    <div class="reason-card">
+      <img src="assets/icons/support.svg" alt="Support Icon">
+      <h3>24×7 Support</h3>
+      <p>We offer round-the-clock assistance to ensure seamless operation and client satisfaction.</p>
+    </div>
+
+    <div class="reason-card">
+      <img src="assets/icons/trust.svg" alt="Trust Icon">
+      <h3>Trusted Partner</h3>
+      <p>Over the years, we’ve built long-term relationships with our clients through trust and results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+
+<section class="testimonial-section">
+  <h2 class="title">What Our Clients Say</h2>
+  <p class="subtitle">Trusted by businesses who believe in our work</p>
+  
+  <div class="testimonial-slider">
+    <div class="testimonial" *ngFor="let t of testimonials; let i = index" [class.active]="i === activeIndex">
+      <p class="quote">"{{ t.quote }}"</p>
+      <div class="client-info">
+        <img [src]="t.image" alt="Client photo" />
+        <div>
+          <h3>{{ t.name }}</h3>
+          <span>{{ t.position }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ----------------------------------------------------------------------------------------------------- -->
+
+<section class="contact-section">
+  <h1 class="contact-title">Get in <span>Touch</span></h1>
+  <p class="contact-subtitle">
+    Have questions or want to discuss your next project? We'd love to hear from you!
+  </p>
+
+  <div class="contact-container">
+    
+    <!-- Contact Form -->
+    <form class="contact-form" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="Enter your email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          rows="5"
+          placeholder="Write your message"
+          required
+        ></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
+
+    <!-- Google Map -->
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.9204574410335!2d73.8567438749716!3d18.52043007130356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c06e1f7a5a7b%3A0xa7e82e3b94f19d64!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1695323249461!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-about">
+      <h3>Purandhar Technologies</h3>
+      <p>Empowering businesses with innovative software solutions. We turn ideas into reality through technology.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/about">About</a></li>
+        <li><a routerLink="/services">Services</a></li>
+        <li><a routerLink="/contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><i class="fas fa-map-marker-alt"></i> Pune, India</p>
+      <p><i class="fas fa-envelope"></i> info@purandhartech.com</p>
+      <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 Purandhar Technologies. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- --------------------------------------------------------------------------------------------------- -->

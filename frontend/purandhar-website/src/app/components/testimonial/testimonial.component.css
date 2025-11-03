@@ -1,25 +1,33 @@
+/* -------------------- Testimonial Section -------------------- */
+
 .testimonial-section {
   text-align: center;
-  padding: 70px 10%;
-  background: linear-gradient(135deg, #fff9f9, #f0f7ff);
+  padding: 80px 10%;
+  background: linear-gradient(135deg, #F8F9FF, #FFF8F5, #F3E5F5);
   font-family: "Poppins", sans-serif;
+  border-top: 2px solid rgba(126, 87, 194, 0.1);
+  border-bottom: 2px solid rgba(126, 87, 194, 0.1);
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 700;
-  color: #333;
+  color: #2E294E; /* Deep violet tone */
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
 }
 
 .subtitle {
-  color: #777;
+  color: #5E35B1;
+  font-weight: 500;
   margin-bottom: 50px;
+  font-size: 1.1rem;
 }
 
 .testimonial-slider {
   position: relative;
   width: 100%;
-  max-width: 700px;
+  max-width: 750px;
   margin: auto;
   overflow: hidden;
 }
@@ -32,10 +40,10 @@
   top: 0;
   left: 0;
   width: 100%;
-  background: white;
-  border-radius: 20px;
-  padding: 30px 25px;
-  box-shadow: 0 6px 20px rgba(255, 192, 203, 0.3);
+  background: linear-gradient(135deg, #ffffff, #FFF3F8, #EDE7F6);
+  border-radius: 22px;
+  padding: 35px 28px;
+  box-shadow: 0 8px 25px rgba(126, 87, 194, 0.15);
 }
 
 .testimonial.active {
@@ -46,9 +54,10 @@
 
 .quote {
   font-size: 1.2rem;
-  color: #444;
+  color: #3A3A3A;
   font-style: italic;
-  line-height: 1.6;
+  line-height: 1.7;
+  margin-bottom: 20px;
 }
 
 .client-info {
@@ -60,27 +69,61 @@
 }
 
 .client-info img {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
-  border: 3px solid #ffb6c1;
+  border: 3px solid #CE93D8; /* soft lavender border */
   object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .client-info h3 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   margin: 0;
-  color: #222;
+  color: #2E294E;
+  font-weight: 600;
 }
 
 .client-info span {
   font-size: 0.9rem;
-  color: #888;
+  color: #666;
+  display: block;
 }
 
-/* Animation smoothness */
+/* Dots or Slider Controls (Optional Enhancement) */
+.slider-dots {
+  margin-top: 25px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 6px;
+  background-color: #D1C4E9;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #7E57C2;
+}
+
+/* Mobile Responsive */
 @media (max-width: 768px) {
+  .testimonial-section {
+    padding: 60px 5%;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
   .quote {
     font-size: 1rem;
+  }
+
+  .testimonial {
+    padding: 25px 20px;
   }
 }
