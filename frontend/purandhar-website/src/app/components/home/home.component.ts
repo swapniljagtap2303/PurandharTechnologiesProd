@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   ];
 
   currentIndex = 0;
+  email: string = '';
+  message: string = '';
 
   constructor() { }
 
@@ -60,6 +62,16 @@ export class HomeComponent implements OnInit {
   ];
 
   activeIndex = 0;
+// --------------------------------------------------------------------
 
+ 
+
+  subscribe() {
+    if (this.email.trim()) {
+      this.message = 'Thank you for subscribing! 🎉';
+      this.email = '';
+      setTimeout(() => (this.message = ''), 3000);
+    }
+  }
 
 }

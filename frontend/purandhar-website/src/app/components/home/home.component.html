@@ -194,6 +194,29 @@
 </section>
 <!-- ----------------------------------------------------------------------------------------------------- -->
 
+<section class="newsletter-section">
+  <div class="newsletter-content">
+    <h2>Subscribe to Our Newsletter</h2>
+    <p>Stay updated with the latest IT trends, tech insights, and company updates.</p>
+
+    <form (ngSubmit)="subscribe()" #newsletterForm="ngForm">
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="Enter your email address"
+        required
+      />
+      <button type="submit" [disabled]="!newsletterForm.valid">Subscribe</button>
+    </form>
+
+    <p *ngIf="message" class="success-message">{{ message }}</p>
+  </div>
+</section>
+
+
+<!-- ----------------------------------------------------------------------------------------------------- -->
+
 <section class="contact-section">
   <h1 class="contact-title">Get in <span>Touch</span></h1>
   <p class="contact-subtitle">
