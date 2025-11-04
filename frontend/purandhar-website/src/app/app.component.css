@@ -1,88 +1,90 @@
-/* Navbar container */
+/* header.component.css */
+
+
+/* 🌈 Navbar base */
 nav {
   width: 100%;
-  margin: 0;
   background: linear-gradient(135deg, #FFCDD2, #FFF9C4, #81D4FA);
-  padding: 15px 25px;
-  border-radius: 8px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  position: sticky;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 10px 0;
+  position: relative;        /* ✅ firmly fix at top */
   top: 0;
   left: 0;
-  right: 0;
   z-index: 1000;
-  transition: all 0.3s ease;
-  
-  /* Smooth hidden scroll setup */
-  overflow-x: auto;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+/* add this to prevent page content from hiding behind navbar */
+body {
+  padding-top: 60px;      /* ✅ equal to navbar height */
+}
+
+
+/* 🧭 Inner scroll container */
+.nav-scroll {
+  display: flex;
+  justify-content: center;     /* ✅ Center items on large screens */
+  align-items: center;
+  overflow-x: auto;            /* ✅ Horizontal scroll only (mobile) */
   overflow-y: hidden;
   white-space: nowrap;
-  scrollbar-width: none;        /* Firefox - hide scrollbar */
-  -ms-overflow-style: none;     /* IE and Edge - hide scrollbar */
-  -webkit-overflow-scrolling: touch; /* smooth mobile scroll */
+  scrollbar-width: none;       /* Hide scrollbar (Firefox) */
+  -ms-overflow-style: none;
 }
 
-/* Completely hide scrollbar for WebKit browsers (Chrome, Safari, Edge) */
-nav::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+/* ✅ Hide scrollbar in Chrome/Safari */
+.nav-scroll::-webkit-scrollbar {
   display: none;
-  background: transparent;
 }
 
-/* Navbar list */
-nav ul {
-  list-style: none;
+/* 🧩 Nav list */
+ul {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
+  list-style: none;
   margin: 0;
-  padding: 0;
-  flex-wrap: nowrap;
+  padding: 0 10px;
 }
 
-/* Navbar links */
-nav ul li a {
-  color: #333;
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 10px 20px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  background: rgba(255,255,255,0.3);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+/* 🧱 Nav item */
+li {
+  margin: 0 12px;
   display: inline-block;
 }
 
-/* Hover effect */
-nav ul li a:hover {
-  background: rgba(255,255,255,0.7);
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+/* ✨ Nav links */
+a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+a:hover {
+  /* background: linear-gradient(135deg, #f9a8d4, #fef08a); soft pink-yellow blend */
   color: #000;
+  transform: translateY(-2px);
 }
 
-/* Active link */
-nav ul li a.active {
-  background: rgba(255,255,255,0.9);
+a.active {
+  background: linear-gradient(135deg, #93c5fd, #fbcfe8); /* soft blue-pink */
   color: #000;
   font-weight: 700;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
-/* Mobile responsive */
+
+/* 📱 Mobile view adjustments */
 @media (max-width: 768px) {
-  nav {
-    padding: 12px;
+  .nav-scroll {
+    justify-content: flex-start;  /* ✅ Start from left on mobile */
   }
-  nav ul {
-    justify-content: flex-start;
-    gap: 15px;
-  }
-  nav ul li a {
-    font-size: 0.95rem;
-    padding: 8px 15px;
+
+  a {
+    font-size: 0.9rem;
+    padding: 6px 12px;
   }
 }
