@@ -1,0 +1,24 @@
+<section class="project-detail">
+    <div class="container">
+        <img [src]="project.image" alt="{{ project.title }}" class="project-image" />
+
+        <div class="project-info">
+            <h1>{{ project.title }}</h1>
+            <p class="description">{{ project.description }}</p>
+
+            <div class="tech-stack">
+                <h3>Technologies Used:</h3>
+                <ul>
+                    <li *ngFor="let tech of project.technologies">{{ tech }}</li>
+                </ul>
+            </div>
+
+            <a [href]="project.link" target="_blank" class="btn">View on GitHub</a>
+            
+            <a routerLink="/projects" class="back-btn">
+                ← Back to Projects
+            </a>
+
+        </div>
+    </div>
+</section>

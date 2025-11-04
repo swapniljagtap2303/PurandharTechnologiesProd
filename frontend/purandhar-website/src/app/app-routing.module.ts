@@ -6,6 +6,9 @@ import { ServicesComponent } from './components/services/services.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { CareersComponent } from './components/careers/careers.component';
+import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 
 const routes: Routes = [
 
@@ -17,15 +20,18 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'testimonial', component: TestimonialComponent },
   { path: 'newsletter', component: NewsletterComponent },
+  { path: 'projects', component: ProjectsComponent },
+  { path: 'projects/:id', component: ProjectDetailComponent },
+  { path: 'careers', component: CareersComponent },
   { path: '**', redirectTo: '' }
 
 ];
 
 @NgModule({
   // imports: [RouterModule.forRoot(routes)],
-   imports: [
+  imports: [
     RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'top'  
+      scrollPositionRestoration: 'top'
     })
   ],
   exports: [RouterModule]

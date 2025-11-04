@@ -608,10 +608,10 @@ textarea {
 
 .testimonial-slider {
   position: relative;
-  width: 100%;
+  width: 90%;
   max-width: 750px;
   margin: auto;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .testimonial {

@@ -10,6 +10,9 @@ import { ServicesComponent } from './components/services/services.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { CareersComponent } from './components/careers/careers.component';
+import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
     ServicesComponent,
     ContactComponent,
     TestimonialComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    ProjectsComponent,
+    CareersComponent,
+    ProjectDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
