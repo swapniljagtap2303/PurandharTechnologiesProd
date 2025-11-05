@@ -22,10 +22,13 @@
 
 <section class="logo-carousel">
   <h2>Trusted By</h2>
-  <div class="logos">
-    <img *ngFor="let logo of logos" [src]="logo" alt="Client Logo" />
+  <div class="logos-wrapper">
+    <div class="logos">
+      <img *ngFor="let logo of logos" [src]="logo" alt="Client Logo" />
+    </div>
   </div>
 </section>
+
 
 <section class="cta-section">
   <h2>Want to Work With Us?</h2>

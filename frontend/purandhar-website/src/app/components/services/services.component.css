@@ -41,14 +41,12 @@
 
 /* Background image behavior */
 .service-card img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.20; /* low opacity */
-  z-index: 0;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 15px;
+  position: static;
+  opacity: 1;
+  transition: transform 0.4s ease;
 }
 
 /* Text stays visible on top */
@@ -61,6 +59,10 @@
 .service-card:hover {
   transform: translateY(-10px) scale(1.03);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover img {
+  transform: rotate(10deg) scale(1.1);
 }
 
 .service-card h2 {

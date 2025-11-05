@@ -1,5 +1,13 @@
 /* header.component.css */
 
+html, body {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 
 /* 🌈 Navbar base */
 nav {

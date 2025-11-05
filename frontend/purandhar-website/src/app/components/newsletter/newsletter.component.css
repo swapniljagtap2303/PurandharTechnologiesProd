@@ -18,23 +18,42 @@
 }
 
 /* === Icon === */
-.icon-area img {
-  width: 90px;
-  margin-bottom: 15px;
-  animation: floatIcon 3s ease-in-out infinite;
+.icon-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
+.icon-area img {
+  width: 200px;
+  max-width: 100%;
+  color:#ff80ab;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: floatIcon 4s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.icon-area img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Floating animation */
 @keyframes floatIcon {
   0% {
-    transform: translateY(0);
+    transform: translateY(0px);
   }
   50% {
-    transform: translateY(-8px);
+    transform: translateY(-15px);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(0px);
   }
 }
+
 
 /* === Title & Text === */
 h2 {

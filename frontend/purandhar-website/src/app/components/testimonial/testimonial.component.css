@@ -1,22 +1,24 @@
-/* Hero Section */
+/* ================= Hero Section ================= */
 .testimonial-hero {
   background: linear-gradient(135deg, #7E57C2, #CE93D8, #FFB74D);
   color: white;
   text-align: center;
   padding: 80px 20px;
   border-radius: 0 0 40px 40px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
+
 .testimonial-hero h1 {
   font-size: 2.8rem;
   margin-bottom: 10px;
 }
+
 .testimonial-hero p {
   font-size: 1.2rem;
   opacity: 0.9;
 }
 
-/* Testimonials Grid */
+/* ================= Testimonials Grid ================= */
 .testimonial-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -24,18 +26,20 @@
   padding: 70px 10%;
   background: linear-gradient(135deg, #fdfbff, #f9f6ff);
 }
+
 .testimonial-card {
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(10px);
   border-radius: 18px;
   padding: 25px;
-  box-shadow: 0 6px 25px rgba(0,0,0,0.08);
-  border: 1px solid rgba(126,87,194,0.15);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(126, 87, 194, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .testimonial-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 35px rgba(126,87,194,0.25);
+  box-shadow: 0 10px 35px rgba(126, 87, 194, 0.25);
 }
 
 .testimonial-header {
@@ -44,6 +48,7 @@
   gap: 15px;
   margin-bottom: 10px;
 }
+
 .client-img {
   width: 60px;
   height: 60px;
@@ -51,49 +56,81 @@
   border: 3px solid #CE93D8;
   object-fit: cover;
 }
+
 .quote {
   font-style: italic;
   color: #333;
   margin: 15px 0;
 }
+
 .rating i {
   color: #FFB400;
 }
 
-/* Logo Carousel */
+/* ================= Logo Carousel ================= */
 .logo-carousel {
   text-align: center;
   background: linear-gradient(135deg, #f9f7ff, #fff3fb);
   padding: 70px 20px;
 }
+
 .logo-carousel h2 {
   font-size: 2rem;
   color: #6A1B9A;
   margin-bottom: 40px;
 }
-.logos {
-  display: flex;
-  gap: 40px;
+
+/* Wrapper ensures proper overflow handling */
+.logos-wrapper {
   overflow-x: auto;
-  justify-content: center;
-  padding: 10px;
-}
-.logos img {
-  height: 60px;
-  filter: grayscale(100%);
-  transition: filter 0.3s ease;
-}
-.logos img:hover {
-  filter: grayscale(0%);
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+  scrollbar-width: none; /* hide scrollbar Firefox */
+  scroll-snap-type: x mandatory; /* enable snapping */
+  padding: 10px 0;
 }
 
-/* CTA Section */
+.logos-wrapper::-webkit-scrollbar {
+  display: none; /* hide scrollbar Chrome/Safari/Edge */
+}
+
+/* Flex container for logos */
+.logos {
+  display: flex;
+  gap: 30px; /* space between logos */
+}
+
+.logos img {
+  height: 60px;
+  flex: 0 0 auto; /* don’t shrink, allow scrolling */
+  scroll-snap-align: start; /* snap each logo */
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.logos img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .logos img {
+    height: 50px;
+  }
+  .logos {
+    gap: 20px;
+  }
+}
+
+/* ================= CTA Section ================= */
 .cta-section {
   text-align: center;
   padding: 80px 20px;
   background: linear-gradient(135deg, #CE93D8, #7E57C2);
   color: white;
 }
+
 .cta-section button {
   background: white;
   color: #7E57C2;
@@ -105,6 +142,7 @@
   margin-top: 15px;
   transition: all 0.3s;
 }
+
 .cta-section button:hover {
   background: #7E57C2;
   color: white;
