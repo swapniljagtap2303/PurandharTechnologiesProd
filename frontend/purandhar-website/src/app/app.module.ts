@@ -10,6 +10,15 @@ import { ServicesComponent } from './components/services/services.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { CareersComponent } from './components/careers/careers.component';
+import { ProjectDetailComponent } from './components/project-detail/project-detail.component';
+import { WebDevelopmentComponent } from './components/services/web-development/web-development.component';
+import { AppDevelopmentComponent } from './components/services/app-development/app-development.component';
+import { CloudSolutionsComponent } from './components/services/cloud-solutions/cloud-solutions.component';
+import { UiUxDesignComponent } from './components/services/ui-ux-design/ui-ux-design.component';
+import { ItConsultingComponent } from './components/services/it-consulting/it-consulting.component';
+import { SupportMaintenanceComponent } from './components/services/support-maintenance/support-maintenance.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +28,21 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
     ServicesComponent,
     ContactComponent,
     TestimonialComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    ProjectsComponent,
+    CareersComponent,
+    ProjectDetailComponent,
+    WebDevelopmentComponent,
+    AppDevelopmentComponent,
+    CloudSolutionsComponent,
+    UiUxDesignComponent,
+    ItConsultingComponent,
+    SupportMaintenanceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

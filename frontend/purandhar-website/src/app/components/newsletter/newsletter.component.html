@@ -1,7 +1,14 @@
-<section class="newsletter-section">
-  <div class="newsletter-content">
-    <h2>Subscribe to Our Newsletter</h2>
-    <p>Stay updated with the latest IT trends, tech insights, and company updates.</p>
+<section class="newsletter-section" data-aos="fade-up">
+  <div class="newsletter-container">
+    <div class="icon-area">
+      <img src="assets/images/newsletter-icon.png" alt="Newsletter Icon" />
+    </div>
+
+    <h2>Stay Ahead in Tech</h2>
+    <p>
+      Subscribe to get the latest updates on technology trends, product launches,
+      and company insights straight to your inbox.
+    </p>
 
     <form (ngSubmit)="subscribe()" #newsletterForm="ngForm">
       <input
@@ -11,7 +18,9 @@
         placeholder="Enter your email address"
         required
       />
-      <button type="submit" [disabled]="!newsletterForm.valid">Subscribe</button>
+      <button type="submit" [disabled]="!newsletterForm.valid">
+        <i class="fa fa-paper-plane"></i> Subscribe
+      </button>
     </form>
 
     <p *ngIf="message" class="success-message">{{ message }}</p>

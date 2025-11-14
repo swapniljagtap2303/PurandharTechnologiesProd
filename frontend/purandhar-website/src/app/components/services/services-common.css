@@ -1,0 +1,89 @@
+.service-detail {
+  padding: 80px 10%;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f9fcff, #fff5f8);
+}
+
+.banner {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.banner h1 {
+  font-size: 2.8rem;
+  color: #ff4081;
+  font-weight: 700;
+}
+
+.banner p {
+  color: #666;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.text h2 {
+  color: #f57c00;
+  margin-bottom: 15px;
+}
+
+.text p {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.text ul li {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.image img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.image img:hover {
+  transform: scale(1.05);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff4081;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #f57c00;
+}

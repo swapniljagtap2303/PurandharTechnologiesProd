@@ -1,9 +1,16 @@
+
 .about-container {
   padding: 60px 10%;
-  background: linear-gradient(135deg, #fff4f4, #e3f2fd);
-  color: #333;
-  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fef9f9, #f3f8ff);
+  background-attachment: fixed;
+  animation: bgMove 10s ease-in-out infinite alternate;
 }
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
 
 .about-header {
   text-align: center;
@@ -74,18 +81,20 @@
 }
 
 .team-card {
-  background: #fff;
+  background: #d9f7f5;
   border-radius: 15px;
-  width: 230px;
+  width: 200px;
   padding: 20px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .team-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(245, 124, 0, 0.3);
+  border: 1px solid #f57c00;
 }
+
 
 .team-card img {
   width: 100%;
@@ -101,4 +110,19 @@
 .team-card p {
   color: #666;
   font-size: 0.9rem;
+}
+
+.btn-linkedin {
+  display: inline-block;
+  background: #0077b5;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-linkedin:hover {
+  background: #005582;
 }
