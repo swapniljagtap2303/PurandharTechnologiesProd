@@ -132,9 +132,19 @@
       </p>
     </div>
 
-    <form (submit)="onSubscribe($event)" class="newsletter-form" data-aos="fade-left" data-aos-delay="300">
-      <input type="email" placeholder="Enter your email address" required />
-      <button type="submit" class="btn-subscribe">Subscribe</button>
+    <form (ngSubmit)=subscribe(newsletterForm) #newsletterForm="ngForm" class="newsletter-form" data-aos="fade-left"
+      data-aos-delay="300">
+
+      <input type="email" name="email" [(ngModel)]="emailData.email" placeholder="Enter your email address" required
+        email #emailField="ngModel" />
+
+      <div class="error-message" *ngIf="emailField.invalid && emailField.touched">
+        <small *ngIf="emailField.errors?.['required']">⚠ Email is required.</small>
+        <small *ngIf="emailField.errors?.['email']">⚠ Please enter a valid email.</small>
+      </div>
+
+      <button type="submit" class="btn-subscribe" [disabled]="!newsletterForm.valid">Subscribe</button>
+
     </form>
   </div>
 </section>
@@ -182,7 +192,7 @@
     <div class="footer-contact">
       <h4>Contact</h4>
       <p><i class="fas fa-map-marker-alt"></i> Pune, India</p>
-      <p><i class="fas fa-envelope"></i> info@purandhartech.com</p>
+      <p><i class="fas fa-envelope"></i> swapniljagtap2711@gmail.com</p>
       <p><i class="fas fa-phone-alt"></i> +91 8010083106</p>
     </div>
 

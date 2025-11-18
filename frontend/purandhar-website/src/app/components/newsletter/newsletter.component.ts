@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { Newsletter } from 'src/app/model/newsletter';
+import { NewsletterServiceService } from 'src/app/service/newsletter-service.service';
 
 @Component({
   selector: 'app-newsletter',
@@ -6,14 +9,33 @@ import { Component } from '@angular/core';
   styleUrls: ['./newsletter.component.css']
 })
 export class NewsletterComponent {
-  email: string = '';
+  // email: string = '';
   message: string = '';
 
-  subscribe() {
-    if (this.email.trim()) {
-      this.message = 'Thank you for subscribing! 🎉';
-      this.email = '';
-      setTimeout(() => (this.message = ''), 3000);
-    }
+  emailData: Newsletter = new Newsletter();
+
+  constructor(public newsletterService: NewsletterServiceService, public toastr: ToastrService) { }
+
+  subscribe(form: any) {
+
+    this.newsletterService.subscribeNewsletter(this.emailData).subscribe({
+      next: (response) => {
+
+        console.log(response);
+
+        if (response.status == 'SUCCESS') {
+          this.toastr.success(response.message, 'Subscribed');
+        }
+
+        form.resetForm();
+      },
+      error: (err) => {
+        console.error(err);
+
+        const backendMessage = err?.error?.message || 'Server error. Try again later.';
+        this.toastr.error(backendMessage, 'Failed');
+      }
+
+    })
   }
 }

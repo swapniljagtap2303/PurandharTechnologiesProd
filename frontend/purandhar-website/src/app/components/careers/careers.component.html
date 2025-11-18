@@ -21,13 +21,30 @@
       <h2>Apply for {{ selectedJob?.title }}</h2>
 
       <form (ngSubmit)="submitApplication()">
-        <input type="text" placeholder="Full Name" [(ngModel)]="applicant.name" name="name" required />
-        <input type="email" placeholder="Email" [(ngModel)]="applicant.email" name="email" required />
-        <textarea placeholder="Cover Letter" [(ngModel)]="applicant.message" name="message" rows="4" required></textarea>
+
+        <input type="text" placeholder="Full Name" [(ngModel)]="applicant.aName" name="name" required />
+
+        <input type="email" placeholder="Email" [(ngModel)]="applicant.aEmail" name="email" required />
+
+        <input type="text" placeholder="Phone Number" [(ngModel)]="applicant.aPhone" name="phone" required />
+
+        <input type="text" placeholder="Applying for Position" [(ngModel)]="applicant.aPosition" name="position"
+          required />
+
+        <input type="text" placeholder="Total Experience (Years)" [(ngModel)]="applicant.experience" name="experience"
+          required />
+
+        <input type="text" placeholder="Current Location" [(ngModel)]="applicant.location" name="location" required />
+
+        <textarea placeholder="Cover Letter" [(ngModel)]="applicant.message" name="message" rows="4"
+          required></textarea>
+
+        <label class="upload-label">Upload Resume</label>
+        <input type="file" (change)="onFileSelected($event)" required />
 
         <button type="submit">Submit Application</button>
-        
       </form>
+
     </div>
   </div>
 </section>

@@ -77,25 +77,40 @@
 }
 
 /* ✨ Modal Box */
+/* 🧠 Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* ✨ Modal Box */
 .modal-content {
-  background: rgba(255, 255, 255, 0.85);
+  background: #ffffffdd;
   backdrop-filter: blur(10px);
-  padding: 30px;
-  border-radius: 15px;
+  padding: 22px 25px;        /* 🔹 HEIGHT कमी */
+  border-radius: 14px;
   width: 90%;
-  max-width: 400px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  max-width: 350px;         /* 🔹 WIDTH FIXED */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   position: relative;
   text-align: center;
-  animation: zoomIn 0.3s ease;
+  animation: zoomIn 0.25s ease;
 }
 
 /* ❌ Close Button */
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.8rem;
+  top: 6px;
+  right: 12px;
+  font-size: 1.4rem;
   cursor: pointer;
   color: #333;
   transition: 0.3s;
@@ -108,45 +123,64 @@
 .modal-content form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;               /* 🔹 LESS GAP */
+  width: 100%;
+  margin-top: 10px;
 }
 
+/* ✏ Inputs */
 .modal-content input,
 .modal-content textarea {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 10px 12px;      /* 🔹 SMALL INPUT */
+  border: 2px solid #ddd;
+  border-radius: 10px;
   outline: none;
-  transition: 0.2s;
+  font-size: 14px;
+  background: #fafafa;
+  transition: 0.25s;
+  box-sizing: border-box;  /* 💥 PREVENT OVERFLOW */
 }
 
+.modal-content textarea {
+  height: 70px;            /* 🔹 SMALLER TEXT AREA */
+  resize: none;
+}
+
+/* FOCUS EFFECT */
 .modal-content input:focus,
 .modal-content textarea:focus {
   border-color: #ff4081;
-  box-shadow: 0 0 5px rgba(255, 64, 129, 0.5);
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 64, 129, 0.35);
 }
 
+/* SUBMIT BUTTON */
 .modal-content button {
-  background: linear-gradient(90deg, #ff80ab, #ffca28);
-  color: white;
-  border: none;
+  width: 100%;
+  background: linear-gradient(135deg, #ff4081, #ffca28);
   padding: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
   border-radius: 25px;
+  border: none;
   cursor: pointer;
-  font-weight: 600;
-  transition: transform 0.3s;
+  letter-spacing: 0.5px;
+  transition: 0.25s;
 }
 
 .modal-content button:hover {
   transform: translateY(-2px);
+  box-shadow: 0px 6px 12px rgba(255, 64, 129, 0.3);
 }
 
-/* 🔄 Animations */
+/* ANIMATIONS */
 @keyframes fadeIn {
-  from { opacity: 0; }
+  from { opacity: 0; } 
   to { opacity: 1; }
 }
+
 @keyframes zoomIn {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }

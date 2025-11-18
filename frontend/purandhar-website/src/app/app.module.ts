@@ -19,6 +19,10 @@ import { CloudSolutionsComponent } from './components/services/cloud-solutions/c
 import { UiUxDesignComponent } from './components/services/ui-ux-design/ui-ux-design.component';
 import { ItConsultingComponent } from './components/services/it-consulting/it-consulting.component';
 import { SupportMaintenanceComponent } from './components/services/support-maintenance/support-maintenance.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -41,8 +45,19 @@ import { SupportMaintenanceComponent } from './components/services/support-maint
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right',
+      timeOut: 3000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      closeButton: true,
+      preventDuplicates: true
+    }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

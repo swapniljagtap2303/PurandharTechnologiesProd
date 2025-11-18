@@ -599,11 +599,12 @@ html, body {
 .newsletter-form {
   flex: 1 1 40%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+  flex-direction: column; 
+  align-items: flex-start;
+  gap: 8px;               
   position: relative;
 }
+
 
 .newsletter-form input {
   flex: 1;
@@ -631,6 +632,8 @@ html, body {
   transform: scale(1.05);
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
 }
+
+
 
 /* 🌤️ CONTACT CTA (Light Gradient + Subtle Glow) */
 
@@ -690,7 +693,7 @@ html, body {
   font-size: 2.2rem;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: #ffa0c4;
+  color: #e70159;
 }
 
 .contact-cta-content p {
@@ -723,8 +726,8 @@ html, body {
   color: #2E294E; /* Deep Violet Text */
   padding: 60px 20px 25px;
   font-family: 'Poppins', sans-serif;
-  border-top-left-radius: 40px;
-  border-top-right-radius: 40px;
+  /* border-top-left-radius: 40px;
+  border-top-right-radius: 40px; */
   /* box-shadow: 0 -5px 4px rgba(0, 0, 0, 0.10); */
   transition: all 0.4s ease;
 }
@@ -779,8 +782,7 @@ html, body {
 }
 
 .links-columns a:hover {
-  /* color: #243eb1;
-  text-shadow: 0 0 8px #4fc3f7, #ba68c8; */
+
   padding: 3px;
   border-radius: 10px;
   background: linear-gradient(135deg, #4fc3f7, #ba68c8);
@@ -827,3 +829,8 @@ html, body {
   letter-spacing: 0.5px;
   /* height: 15px; */
 }
+
+
+
+
+

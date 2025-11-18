@@ -10,17 +10,25 @@
       and company insights straight to your inbox.
     </p>
 
-    <form (ngSubmit)="subscribe()" #newsletterForm="ngForm">
+    <form (ngSubmit)="subscribe(newsletterForm)" #newsletterForm="ngForm">
       <input
         type="email"
         name="email"
-        [(ngModel)]="email"
+        [(ngModel)]="emailData.email"
         placeholder="Enter your email address"
         required
+        email
+        #emailField="ngModel"
       />
+
       <button type="submit" [disabled]="!newsletterForm.valid">
         <i class="fa fa-paper-plane"></i> Subscribe
       </button>
+
+      <div *ngIf="emailField.invalid && emailField.touched" class="error-message">
+        <small *ngIf="emailField.errors?.['required']">Email is required.</small>
+        <small *ngIf="emailField.errors?.['email']">Invalid email format.</small>
+      </div>
     </form>
 
     <p *ngIf="message" class="success-message">{{ message }}</p>

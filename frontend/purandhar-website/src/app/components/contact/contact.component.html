@@ -6,40 +6,42 @@
 
   <div class="contact-container">
     <!-- Contact Form -->
-    <form class="contact-form" (ngSubmit)="onSubmit()">
+    <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
       <div class="form-group">
         <label for="name">Full Name</label>
-        <input type="text" id="name" placeholder="Enter your name" required />
+        <input type="text" id="name" [(ngModel)]="contactData.cName" name="cName" required  minlength="3" 
+      #name="ngModel"/>
+        <div class="error" *ngIf="name.invalid && name.touched">
+          Full Name is required (min 3 chars)
+        </div>
       </div>
 
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="Enter your email" required />
+        <input type="email" id="email" [(ngModel)]="contactData.cEmail" name="cEmail" required email 
+      #email="ngModel" />
+        <div class="error" *ngIf="email.invalid && email.touched">
+          Enter a valid email address
+        </div>
       </div>
 
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea
-          id="message"
-          rows="5"
-          placeholder="Write your message"
-          required
-        ></textarea>
+        <textarea id="message" rows="5" [(ngModel)]="contactData.cMessage" name="cMessage" required minlength="10"
+      #message="ngModel" ></textarea>
+        <div class="error" *ngIf="message.invalid && message.touched">
+          Message should be at least 10 characters long
+        </div>
       </div>
 
-      <button type="submit" class="submit-btn">Send Message</button>
+      <button type="submit" class="submit-btn" [disabled]="contactForm.invalid">Send Message</button>
     </form>
 
     <!-- Google Map -->
     <div class="map-container">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.9204574410335!2d73.8567438749716!3d18.52043007130356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c06e1f7a5a7b%3A0xa7e82e3b94f19d64!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1695323249461!5m2!1sen!2sin"
-        width="100%"
-        height="100%"
-        style="border: 0"
-        allowfullscreen=""
-        loading="lazy"
-      ></iframe>
+        width="100%" height="100%" style="border: 0" allowfullscreen="" loading="lazy"></iframe>
     </div>
   </div>
 </section>
