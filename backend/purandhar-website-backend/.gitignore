@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
@@ -31,3 +32,11 @@ build/
 
 ### VS Code ###
 .vscode/
+=======
+.metadata/
+*.log
+*.txt
+.idea/
+*.iml
+backend/.metadata/
+>>>>>>> 949a870 (Removed setup git.txt and added .gitignore for backend metadata)
