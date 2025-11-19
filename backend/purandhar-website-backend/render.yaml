@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: PurandharTechnologiesProd
+    env: java
+    region: oregon
+    plan: free
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/*.jar"

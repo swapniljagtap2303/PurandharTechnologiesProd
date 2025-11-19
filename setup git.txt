@@ -1,0 +1,148 @@
+🚀 Final Goal — Professional GitHub & Deploy Setup
+
+🔹 Single GitHub Repo: purandhartechnologiesproduction
+🔹 Two main folders:
+
+purandhartechnologiesproduction/
+├── frontend/     → Angular app (Netlify)
+└── backend/      → Spring Boot app (Render)
+
+
+🔹 Branching Strategy (for 3 developers):
+
+main              → Production (stable code)
+frontend-dev      → Frontend developer branch
+backend-dev       → Backend developer branch
+testing           → QA / test branch (optional)
+
+🧱 Step 1: Folder Structure बनव
+
+तुझ्या local project मध्ये जा आणि खालील structure तयार कर ⬇️
+
+cd purandhartechnologiesproduction
+
+mkdir frontend
+mkdir backend
+
+
+frontend मध्ये तुझं Angular code move कर:
+
+mv src angular.json package.json frontend/
+
+
+(जर आधीच frontend स्वतंत्र असेल तर हा step skip करा)
+
+backend मध्ये Spring Boot code move कर:
+
+mv src pom.xml backend/
+
+🌿 Step 2: Git Branch Setup (3 Developer साठी)
+
+1️⃣ main branch वरून दोन branches तयार कर
+
+git branch frontend-dev
+git branch backend-dev
+git branch testing
+
+
+2️⃣ Push करा GitHub वर
+
+git push origin main
+git push origin frontend-dev
+git push origin backend-dev
+git push origin testing
+
+
+आता GitHub वर तुझ्याकडे 4 branches दिसतील.
+
+👨‍💻 Step 3: Developer Workflows
+Developer	Branch	Folder	Deploy
+Frontend Dev	frontend-dev	frontend/	Netlify
+Backend Dev	backend-dev	backend/	Render
+QA / Tester	testing	—	Local / staging
+Admin (तू)	main	—	Production merge
+✅ Workflow Example
+
+Frontend dev changes → commit → push → Netlify auto deploy
+
+Backend dev changes → commit → push → Render auto deploy
+
+तू merge करतोस tested changes → main मध्ये (production version)   
+
+⚙️ Step 5: Render (Backend) Setup
+
+Render मध्ये:
+
+Repo → purandhartechnologiesproduction
+
+Branch → backend-dev
+
+Root Directory → backend
+
+Build Command → ./mvnw -DskipTests package
+
+Start Command → java -jar target/*.jar
+
+Render ला कळेल की backend folder मध्ये code आहे.
+
+🔐 Step 6: Environment Variables Handle करणे
+
+Render आणि Netlify दोन्ही ठिकाणी “Environment Variables” page वर खालील add करा 👇
+
+Render
+SPRING_DATASOURCE_URL = jdbc:mysql://...
+SPRING_DATASOURCE_USERNAME = ...
+SPRING_DATASOURCE_PASSWORD = ...
+
+🧩 Step 7: Merge Workflow (Admin – तू)
+When frontend/backend work is done:
+
+Merge backend-dev → main
+
+Merge frontend-dev → main
+
+Create release tag (optional):
+
+git tag -a v1.0 -m "First production release"
+git push origin v1.0
+
+👥 Step 8: Developer Access Control
+
+1️⃣ GitHub → Settings → Collaborators → Add each developer by username/email
+2️⃣ Give them Write access
+3️⃣ Each dev will:
+
+git clone https://github.com/<yourname>/purandhartechnologiesproduction.git
+git switch frontend-dev  # for frontend developer
+git switch backend-dev   # for backend developer
+
+🌍 Step 9: Production Deployment
+
+तू production साठी Netlify आणि Render मध्ये branch: main निववशील.
+
+म्हणजे main merge झाले की, production site & backend दोन्ही आपोआप update होतील 🚀
+
+💡 Extra Professional Touches
+
+✅ Add README.md with project structure, setup commands
+✅ Add .gitignore (Angular + Spring templates)
+✅ Add _redirects file in frontend/ for Angular routing
+✅ Add CI/CD (GitHub Actions) नंतर (optional)   
+
+🔁 Summary — तुझं final repo असं दिसेल 👇
+purandhartechnologiesproduction/
+├── frontend/
+│   ├── src/
+│   ├── angular.json
+│   ├── package.json
+│   ├── _redirects
+│   └── ...
+│
+├── backend/
+│   ├── src/
+│   ├── pom.xml
+│   ├── Dockerfile (optional)
+│   └── ...
+│
+├── README.md
+└── .gitignore
