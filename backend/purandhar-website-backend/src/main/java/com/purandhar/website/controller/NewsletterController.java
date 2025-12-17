@@ -13,11 +13,6 @@ import com.purandhar.website.model.ApiResponse;
 import com.purandhar.website.model.NewsletterSubscriber;
 import com.purandhar.website.service.NewsletterService;
 
-@CrossOrigin(
-	    origins = "https://purandhartechnologiesprod.vercel.app",
-	    allowedHeaders = "*",
-	    methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.OPTIONS}
-	)
 
 @RestController
 @RequestMapping("/api/newsletter")
