@@ -20,7 +20,8 @@ public class WebConfig {
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
                         .allowedOrigins(
-                            "https://purandhartechnologiesprod.vercel.app"
+                        	"http://localhost:4200",
+                            "https://purandhar-technologies-spj.vercel.app"
                         )
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
