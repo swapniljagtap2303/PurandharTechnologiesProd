@@ -16,3 +16,4 @@ export class NewsletterServiceService {
     return this.http.post(`${this.baseUrl}/newsletter/subscribe`, emailData);
   }
 }
+
