@@ -10,6 +10,9 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jdk
 WORKDIR /app
 
+# 👉 Create cert directory
+RUN mkdir -p /etc/certs
+
 # 👉 Copy TiDB CA certificate (IMPORTANT)
 COPY certs/tidb-ca.pem /etc/certs/tidb-ca.pem
 
