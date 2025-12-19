@@ -16,7 +16,6 @@ import com.purandhar.website.service.JobService;
 
 @RestController
 @RequestMapping("/api/jobs")
-//@CrossOrigin(origins = "*")
 public class JobController {
 
     @Autowired
