@@ -21,41 +21,100 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    @Value("${app.mail.enabled}")
+    @Value("${app.mail.enabled:false}")
     private boolean mailEnabled;
 
-    @Value("${app.env.name}")
+    @Value("${app.env.name:LOCAL}")
     private String env;
+    
+    @Value("${MAIL_FROM:purandartechnologies@gmail.com}")
+    private String from;
 
-    public void sendResume(JobApplication job, MultipartFile file)
+    @Value("${MAIL_TO:purandhartechnologies@gmail.com}")
+    private String to;
+
+    public void sendResume(JobApplication job, MultipartFile resumeFile)
             throws MessagingException, IOException {
+    	
+    	
+    	 try {
+    		 
+    		  if (!mailEnabled) {
+    	            System.out.println("📧 Mail disabled for env: " + env);
+    	            return;
+    	        }
+    		 
+             MimeMessage message = mailSender.createMimeMessage();
+             MimeMessageHelper helper =
+                     new MimeMessageHelper(message, true);
 
-        if (!mailEnabled) {
-            System.out.println("📧 Mail disabled for env: " + env);
-            return;
-        }
+             helper.setFrom(from);
+             helper.setTo(to);
+             helper.setSubject("[" + env + "] New Job Application - " + job.getaName());
 
-        MimeMessage message = mailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+             String body = """
+                     New Job Application Received
 
-        helper.setTo("purandhartechnologies@gmail.com");
-        helper.setSubject("[" + env + "] New Job Application - " + job.getaName());
+                     Name: %s
+                     Email: %s
+                     Phone: %s
+                     Position: %s
+                     Experience: %s
+                     Location: %s
+                     Message: %s
+                     """.formatted(
+                     job.getaName(),
+                     job.getaEmail(),
+                     job.getaPhone(),
+                     job.getaPosition(),
+                     job.getExperience(),
+                     job.getLocation(),
+                     job.getMessage()
+             );
 
-        helper.setText(
-            "Environment: " + env + "\n\n" +
-            "Name: " + job.getaName() + "\n" +
-            "Email: " + job.getaEmail() + "\n" +
-            "Mobile: " + job.getaPhone()
-        );
+             helper.setText(body);
 
-        if (file != null && !file.isEmpty()) {
-            helper.addAttachment(
-                file.getOriginalFilename(),
-                new ByteArrayResource(file.getBytes())
-            );
-        }
-        
-        System.out.println("in Send mail");
-        mailSender.send(message);
+             if (resumeFile != null && !resumeFile.isEmpty()) {
+                 helper.addAttachment(
+                         resumeFile.getOriginalFilename(),
+                         new ByteArrayResource(resumeFile.getBytes())
+                 );
+             }
+
+             mailSender.send(message);
+
+         } catch (Exception e) {
+             throw new RuntimeException("Email sending failed", e);
+         }
+    	
+    	
+
+//        if (!mailEnabled) {
+//            System.out.println("📧 Mail disabled for env: " + env);
+//            return;
+//        }
+
+//        MimeMessage message = mailSender.createMimeMessage();
+//        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+//
+//        helper.setTo("purandhartechnologies@gmail.com");
+//        helper.setSubject("[" + env + "] New Job Application - " + job.getaName());
+//
+//        helper.setText(
+//            "Environment: " + env + "\n\n" +
+//            "Name: " + job.getaName() + "\n" +
+//            "Email: " + job.getaEmail() + "\n" +
+//            "Mobile: " + job.getaPhone()
+//        );
+//
+//        if (file != null && !file.isEmpty()) {
+//            helper.addAttachment(
+//                file.getOriginalFilename(),
+//                new ByteArrayResource(file.getBytes())
+//            );
+//        }
+//        
+//        System.out.println("in Send mail");
+//        mailSender.send(message);
     }
 }
