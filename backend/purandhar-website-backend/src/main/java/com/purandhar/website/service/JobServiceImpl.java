@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.purandhar.website.common.EmailService;
+import com.purandhar.website.common.SendGridApiEmailService;
 import com.purandhar.website.model.ApiResponse;
 import com.purandhar.website.model.JobApplication;
 import com.purandhar.website.repository.JobRepository;
@@ -22,6 +23,10 @@ public class JobServiceImpl implements JobService {
 
     @Autowired
     private EmailService emailService;
+    
+    @Autowired(required = false)
+    private SendGridApiEmailService sendGridApiEmailService;
+
 
     @Autowired(required = false)
     private FileService fileService;
@@ -62,8 +67,15 @@ public class JobServiceImpl implements JobService {
             JobApplication savedJob = jobRepository.save(job);
 
             // 4️⃣ Send resume via email (DEV + PROD)
-            emailService.sendResume(savedJob, resumeFile);
+//            emailService.sendResume(savedJob, resumeFile);
+            
+            if ("PROD".equals(env)) {
+                sendGridApiEmailService.send(savedJob);
+            } else {
+                emailService.sendResume(savedJob, resumeFile);
+            }
 
+            
             return new ApiResponse(
                     201,
                     "SUCCESS",
