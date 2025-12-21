@@ -18,7 +18,7 @@ import jakarta.mail.internet.MimeMessage;
 @Service
 public class EmailService {
 
-    @Autowired
+    @Autowired(required = false)
     private JavaMailSender mailSender;
 
     @Value("${app.mail.enabled:false}")
@@ -26,8 +26,8 @@ public class EmailService {
 
     @Value("${app.env.name:LOCAL}")
     private String env;
-    
-    @Value("${MAIL_FROM:purandartechnologies@gmail.com}")
+
+    @Value("${MAIL_FROM:purandhartechnologies@gmail.com}")
     private String from;
 
     @Value("${MAIL_TO:purandhartechnologies@gmail.com}")
@@ -35,58 +35,132 @@ public class EmailService {
 
     public void sendResume(JobApplication job, MultipartFile resumeFile)
             throws MessagingException, IOException {
-    	
-    	
-    	 try {
-    		 
-    		  if (!mailEnabled) {
-    	            System.out.println("📧 Mail disabled for env: " + env);
-    	            return;
-    	        }
-    		 
-             MimeMessage message = mailSender.createMimeMessage();
-             MimeMessageHelper helper =
-                     new MimeMessageHelper(message, true);
 
-             helper.setFrom(from);
-             helper.setTo(to);
-             helper.setSubject("[" + env + "] New Job Application - " + job.getaName());
+        // ✅ Mail OFF or SMTP missing → safely skip
+        if (!mailEnabled || mailSender == null) {
+            System.out.println("📧 Mail skipped | enabled=" + mailEnabled + " | env=" + env);
+            return;
+        }
 
-             String body = """
-                     New Job Application Received
+        try {
+            MimeMessage message = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(message, true);
 
-                     Name: %s
-                     Email: %s
-                     Phone: %s
-                     Position: %s
-                     Experience: %s
-                     Location: %s
-                     Message: %s
-                     """.formatted(
-                     job.getaName(),
-                     job.getaEmail(),
-                     job.getaPhone(),
-                     job.getaPosition(),
-                     job.getExperience(),
-                     job.getLocation(),
-                     job.getMessage()
-             );
+            helper.setFrom(from);
+            helper.setTo(to);
+            helper.setSubject("[" + env + "] New Job Application - " + job.getaName());
 
-             helper.setText(body);
+            String body = """
+                    New Job Application Received
 
-             if (resumeFile != null && !resumeFile.isEmpty()) {
-                 helper.addAttachment(
-                         resumeFile.getOriginalFilename(),
-                         new ByteArrayResource(resumeFile.getBytes())
-                 );
-             }
+                    Name: %s
+                    Email: %s
+                    Phone: %s
+                    Position: %s
+                    Experience: %s
+                    Location: %s
+                    Message: %s
+                    """.formatted(
+                    job.getaName(),
+                    job.getaEmail(),
+                    job.getaPhone(),
+                    job.getaPosition(),
+                    job.getExperience(),
+                    job.getLocation(),
+                    job.getMessage()
+            );
 
-             mailSender.send(message);
+            helper.setText(body);
 
-         } catch (Exception e) {
-             throw new RuntimeException("Email sending failed", e);
-         }
-    	
+            if (resumeFile != null && !resumeFile.isEmpty()) {
+                helper.addAttachment(
+                        resumeFile.getOriginalFilename(),
+                        new ByteArrayResource(resumeFile.getBytes())
+                );
+            }
+
+            mailSender.send(message);
+
+        } catch (Exception e) {
+            // ❌ app crash नको
+            System.err.println("❌ Email failed but app continues: " + e.getMessage());
+        }
+    }
+}
+
+
+//@Service
+//public class EmailService {
+//
+//    @Autowired
+//    private JavaMailSender mailSender;
+//
+//    @Value("${app.mail.enabled:false}")
+//    private boolean mailEnabled;
+//
+//    @Value("${app.env.name:LOCAL}")
+//    private String env;
+//    
+//    @Value("${MAIL_FROM:purandartechnologies@gmail.com}")
+//    private String from;
+//
+//    @Value("${MAIL_TO:purandhartechnologies@gmail.com}")
+//    private String to;
+//
+//    public void sendResume(JobApplication job, MultipartFile resumeFile)
+//            throws MessagingException, IOException {
+//    	
+//    	
+//    	 try {
+//    		 
+//    		  if (!mailEnabled) {
+//    	            System.out.println("📧 Mail disabled for env: " + env);
+//    	            return;
+//    	        }
+//    		 
+//             MimeMessage message = mailSender.createMimeMessage();
+//             MimeMessageHelper helper =
+//                     new MimeMessageHelper(message, true);
+//
+//             helper.setFrom(from);
+//             helper.setTo(to);
+//             helper.setSubject("[" + env + "] New Job Application - " + job.getaName());
+//
+//             String body = """
+//                     New Job Application Received
+//
+//                     Name: %s
+//                     Email: %s
+//                     Phone: %s
+//                     Position: %s
+//                     Experience: %s
+//                     Location: %s
+//                     Message: %s
+//                     """.formatted(
+//                     job.getaName(),
+//                     job.getaEmail(),
+//                     job.getaPhone(),
+//                     job.getaPosition(),
+//                     job.getExperience(),
+//                     job.getLocation(),
+//                     job.getMessage()
+//             );
+//
+//             helper.setText(body);
+//
+//             if (resumeFile != null && !resumeFile.isEmpty()) {
+//                 helper.addAttachment(
+//                         resumeFile.getOriginalFilename(),
+//                         new ByteArrayResource(resumeFile.getBytes())
+//                 );
+//             }
+//
+//             mailSender.send(message);
+//
+//         } catch (Exception e) {
+//             throw new RuntimeException("Email sending failed", e);
+//         }
+//    	
     	
 
 //        if (!mailEnabled) {
@@ -116,5 +190,5 @@ public class EmailService {
 //        
 //        System.out.println("in Send mail");
 //        mailSender.send(message);
-    }
-}
+//    }
+//}

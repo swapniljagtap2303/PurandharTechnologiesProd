@@ -26,8 +26,8 @@ public class JobServiceImpl implements JobService {
     @Autowired(required = false)
     private FileService fileService;
 
-    @Value("${app.resume.save.enabled}")
-    private boolean saveResume;
+    @Value("${app.resume.save.enabled:false}")
+    private boolean resumeSaveEnabled;
 
     @Value("${app.env.name}")
     private String env;
@@ -49,7 +49,7 @@ public class JobServiceImpl implements JobService {
             }
 
             // 2️⃣ DEV only → save resume + path
-            if (saveResume && "DEV".equals(env)
+            if (resumeSaveEnabled && "DEV".equals(env)
                     && resumeFile != null && !resumeFile.isEmpty()) {
 
                 String resumeUrl = fileService.uploadResume(resumeFile);
