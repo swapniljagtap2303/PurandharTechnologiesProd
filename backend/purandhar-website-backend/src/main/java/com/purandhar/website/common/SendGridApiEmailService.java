@@ -17,10 +17,10 @@ public class SendGridApiEmailService {
     @Value("${SENDGRID_API_KEY:}")
     private String apiKey;
 
-    @Value("${MAIL_FROM:purandhartechnologies@gmail.com}")
+    @Value("${MAIL_FROM:purandartechnologies@gmail.com}")
     private String from;
 
-    @Value("${MAIL_TO:purandhartechnologies@gmail.com}")
+    @Value("${MAIL_TO:purandartechnologies@gmail.com}")
     private String to;
 
     public void send(JobApplication job) throws IOException {
